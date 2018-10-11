@@ -1,0 +1,257 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: a-js
+  labels:
+    app.kubernetes.io/instance: a
+    app.kubernetes.io/name: recursivecall
+    app.kubernetes.io/version: js
+spec:
+  replicas: 3
+  minReadySeconds: 10
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/instance: a
+      app.kubernetes.io/name: recursivecall
+      app.kubernetes.io/version: js
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/instance: a
+        app.kubernetes.io/name: recursivecall
+        app.kubernetes.io/version: js
+    spec:
+      containers:
+      - env:
+        - name: PROCS
+          value: "1"
+        image: davidbetz/recursivecall
+        name: a
+      restartPolicy: Always
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: b-js
+  labels:
+    app.kubernetes.io/instance: b
+    app.kubernetes.io/name: recursivecall
+    app.kubernetes.io/version: js
+spec:
+  replicas: 3
+  minReadySeconds: 10
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/instance: b
+      app.kubernetes.io/name: recursivecall
+      app.kubernetes.io/version: js
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/instance: b
+        app.kubernetes.io/name: recursivecall
+        app.kubernetes.io/version: js
+    spec:
+      containers:
+      - env:
+        - name: PROCS
+          value: "1"
+        image: davidbetz/recursivecall
+        name: b
+      restartPolicy: Always
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: c-js
+  labels:
+    app.kubernetes.io/instance: c
+    app.kubernetes.io/name: recursivecall
+    app.kubernetes.io/version: js
+spec:
+  replicas: 3
+  minReadySeconds: 10
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/instance: c
+      app.kubernetes.io/name: recursivecall
+      app.kubernetes.io/version: js
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/instance: c
+        app.kubernetes.io/name: recursivecall
+        app.kubernetes.io/version: js
+    spec:
+      containers:
+      - env:
+        - name: PROCS
+          value: "1"
+        image: davidbetz/recursivecall
+        name: c
+      restartPolicy: Always
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: d-js
+  labels:
+    app.kubernetes.io/instance: d
+    app.kubernetes.io/name: recursivecall
+    app.kubernetes.io/version: js
+spec:
+  replicas: 3
+  minReadySeconds: 10
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/instance: d
+      app.kubernetes.io/name: recursivecall
+      app.kubernetes.io/version: js
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/instance: d
+        app.kubernetes.io/name: recursivecall
+        app.kubernetes.io/version: js
+    spec:
+      containers:
+      - env:
+        - name: PROCS
+          value: "1"
+        image: davidbetz/recursivecall
+        name: d
+      restartPolicy: Always
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: e-js
+  labels:
+    app.kubernetes.io/instance: e
+    app.kubernetes.io/name: recursivecall
+    app.kubernetes.io/version: js
+spec:
+  replicas: 3
+  minReadySeconds: 10
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/instance: e
+      app.kubernetes.io/name: recursivecall
+      app.kubernetes.io/version: js
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/instance: e
+        app.kubernetes.io/name: recursivecall
+        app.kubernetes.io/version: js
+    spec:
+      containers:
+      - env:
+        - name: PROCS
+          value: "1"
+        image: davidbetz/recursivecall
+        name: e
+      restartPolicy: Always
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: f-js
+  labels:
+    app.kubernetes.io/instance: f
+    app.kubernetes.io/name: recursivecall
+    app.kubernetes.io/version: js
+spec:
+  replicas: 3
+  minReadySeconds: 10
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/instance: f
+      app.kubernetes.io/name: recursivecall
+      app.kubernetes.io/version: js
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/instance: f
+        app.kubernetes.io/name: recursivecall
+        app.kubernetes.io/version: js
+    spec:
+      containers:
+      - env:
+        - name: PROCS
+          value: "1"
+        image: davidbetz/recursivecall
+        name: f
+      restartPolicy: Always
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: g-js
+  labels:
+    app.kubernetes.io/instance: g
+    app.kubernetes.io/name: recursivecall
+    app.kubernetes.io/version: js
+spec:
+  replicas: 3
+  minReadySeconds: 10
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/instance: g
+      app.kubernetes.io/name: recursivecall
+      app.kubernetes.io/version: js
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/instance: g
+        app.kubernetes.io/name: recursivecall
+        app.kubernetes.io/version: js
+    spec:
+      containers:
+      - env:
+        - name: PROCS
+          value: "1"
+        image: davidbetz/recursivecall
+        name: g
+      restartPolicy: Always
+        
+# be sure to add the label type=ingress to some nodes

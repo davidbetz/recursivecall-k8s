@@ -1,0 +1,109 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app.kubernetes.io/instance: a
+    app.kubernetes.io/name: recursivecall
+    app.kubernetes.io/version: go
+  name: a
+spec:
+  clusterIP: None
+  selector:
+    app.kubernetes.io/instance: a
+    app.kubernetes.io/name: recursivecall
+    app.kubernetes.io/version: go
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app.kubernetes.io/instance: b
+    app.kubernetes.io/name: recursivecall
+    app.kubernetes.io/version: go
+  name: b
+spec:
+  clusterIP: None
+  selector:
+    app.kubernetes.io/instance: b
+    app.kubernetes.io/name: recursivecall
+    app.kubernetes.io/version: go
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app.kubernetes.io/instance: c
+    app.kubernetes.io/name: recursivecall
+    app.kubernetes.io/version: go
+  name: c
+spec:
+  clusterIP: None
+  selector:
+    app.kubernetes.io/instance: c
+    app.kubernetes.io/name: recursivecall
+    app.kubernetes.io/version: go
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app.kubernetes.io/instance: d
+    app.kubernetes.io/name: recursivecall
+    app.kubernetes.io/version: go
+  name: d
+spec:
+  clusterIP: None
+  selector:
+    app.kubernetes.io/instance: d
+    app.kubernetes.io/name: recursivecall
+    app.kubernetes.io/version: go
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app.kubernetes.io/instance: e
+    app.kubernetes.io/name: recursivecall
+    app.kubernetes.io/version: go
+  name: e
+spec:
+  clusterIP: None
+  selector:
+    app.kubernetes.io/instance: e
+    app.kubernetes.io/name: recursivecall
+    app.kubernetes.io/version: go
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app.kubernetes.io/instance: f
+    app.kubernetes.io/name: recursivecall
+    app.kubernetes.io/version: go
+  name: f
+spec:
+  clusterIP: None
+  selector:
+    app.kubernetes.io/instance: f
+    app.kubernetes.io/name: recursivecall
+    app.kubernetes.io/version: go
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app.kubernetes.io/instance: g
+    app.kubernetes.io/name: recursivecall
+    app.kubernetes.io/version: go
+  name: g
+spec:
+  type: NodePort
+  ports:
+  - name: http
+    protocol: TCP
+    port: 3000
+    nodePort: 31234
+  selector:
+    app.kubernetes.io/instance: g
+    app.kubernetes.io/name: recursivecall
+    app.kubernetes.io/version: go
