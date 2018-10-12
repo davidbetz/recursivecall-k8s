@@ -67,6 +67,8 @@ spec:
       - env:
         - name: PROCS
           value: "1"
+        - name: ADDRESS_SUFFIX
+          value: "default.svc.cluster.local"
         image: davidbetz/recursivecall-go
         readinessProbe:
           exec:
@@ -121,13 +123,15 @@ spec:
       - env:
         - name: PROCS
           value: "1"
+        - name: ADDRESS_SUFFIX
+          value: "default.svc.cluster.local"
         image: davidbetz/recursivecall-go
         readinessProbe:
           exec:
             command:
             - ./recursivecall
             - check
-            - a
+            - b
           initialDelaySeconds: 5
           periodSeconds: 10
         livenessProbe:
@@ -175,13 +179,15 @@ spec:
       - env:
         - name: PROCS
           value: "1"
+        - name: ADDRESS_SUFFIX
+          value: "default.svc.cluster.local"
         image: davidbetz/recursivecall-go
         readinessProbe:
           exec:
             command:
             - ./recursivecall
             - check
-            - a
+            - c
           initialDelaySeconds: 5
           periodSeconds: 10
         livenessProbe:
@@ -229,13 +235,15 @@ spec:
       - env:
         - name: PROCS
           value: "1"
+        - name: ADDRESS_SUFFIX
+          value: "default.svc.cluster.local"
         image: davidbetz/recursivecall-go
         readinessProbe:
           exec:
             command:
             - ./recursivecall
             - check
-            - a
+            - d
           initialDelaySeconds: 5
           periodSeconds: 10
         livenessProbe:
@@ -282,13 +290,15 @@ spec:
       - env:
         - name: PROCS
           value: "1"
+        - name: ADDRESS_SUFFIX
+          value: "default.svc.cluster.local"
         image: davidbetz/recursivecall-go
         readinessProbe:
           exec:
             command:
             - ./recursivecall
             - check
-            - a
+            - e
           initialDelaySeconds: 5
           periodSeconds: 10
         livenessProbe:
@@ -335,13 +345,15 @@ spec:
       - env:
         - name: PROCS
           value: "1"
+        - name: ADDRESS_SUFFIX
+          value: "default.svc.cluster.local"
         image: davidbetz/recursivecall-go
         readinessProbe:
           exec:
             command:
             - ./recursivecall
             - check
-            - a
+            - f
           initialDelaySeconds: 5
           periodSeconds: 10
         livenessProbe:
@@ -355,7 +367,3 @@ spec:
           timeoutSeconds: 4
         name: g
       restartPolicy: Always
-        
-# be sure to add the label type=ingress to some nodes
-
-
