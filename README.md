@@ -4,14 +4,29 @@
 
 See [https://github.com/davidbetz/recursivecall-go](https://github.com/davidbetz/recursivecall-go) for project details.
 
+This setup has a few components:
+
+* Services
+* Deployments
+* NGINX Ingress Controller
+* Ingress
+
 ## Usage
 
     kubectl apply -f services.yml
     kubectl apply -f deployments-go.yml
+    kubectl apply -f ingress-controller-go.yml
+    kubectl apply -f ingress-go.yml
 
-After adding "g" to your name resolution (e.g. /etc/hosts):
+After adding `recursivecall.example.org` to your name resolution (e.g. `/etc/hosts`):
 
-    curl g:31234
+    curl recursivecall.example.org:30000
+
+Also:
+
+    curl recursivecall.example.org:30000/g
+    curl recursivecall.example.org:30000/c
+    curl recursivecall.example.org:30000/a
 
 ## Probes
 
@@ -34,7 +49,3 @@ Commands:
     kubectl get deployment -l app.kubernetes.io/version=js
     sed "s/version: go/version: js/g" services.yml | kubectl apply -f -
     kubectl delete -f deployments-go.yml
-
-## Testing
-
-    curl g:31234

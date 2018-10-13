@@ -1,0 +1,23 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: app-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+  - host: recursivecall.example.org
+    http:
+      paths:
+      - path: /g
+        backend:
+          serviceName: g
+          servicePort: 3000
+      - path: /c
+        backend:
+          serviceName: c
+          servicePort: 3000
+      - path: /a
+        backend:
+          serviceName: a
+          servicePort: 3000
