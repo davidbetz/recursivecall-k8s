@@ -1,3 +1,12 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: env-config
+  namespace: default
+data:
+  PROCS: "1"
+  ADDRESS_SUFFIX: default.svc.cluster.local
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -27,9 +36,9 @@ spec:
         app.kubernetes.io/version: go
     spec:
       containers:
-      - env:
-        - name: PROCS
-          value: "1"
+      - envFrom:
+        - configMapRef:
+            name: env-config
         image: davidbetz/recursivecall-go
         name: a
       restartPolicy: Always
@@ -64,11 +73,9 @@ spec:
         app.kubernetes.io/version: go
     spec:
       containers:
-      - env:
-        - name: PROCS
-          value: "1"
-        - name: ADDRESS_SUFFIX
-          value: "default.svc.cluster.local"
+      - envFrom:
+        - configMapRef:
+            name: env-config
         image: davidbetz/recursivecall-go
         readinessProbe:
           exec:
@@ -120,11 +127,9 @@ spec:
         app.kubernetes.io/version: go
     spec:
       containers:
-      - env:
-        - name: PROCS
-          value: "1"
-        - name: ADDRESS_SUFFIX
-          value: "default.svc.cluster.local"
+      - envFrom:
+        - configMapRef:
+            name: env-config
         image: davidbetz/recursivecall-go
         readinessProbe:
           exec:
@@ -176,11 +181,9 @@ spec:
         app.kubernetes.io/version: go
     spec:
       containers:
-      - env:
-        - name: PROCS
-          value: "1"
-        - name: ADDRESS_SUFFIX
-          value: "default.svc.cluster.local"
+      - envFrom:
+        - configMapRef:
+            name: env-config
         image: davidbetz/recursivecall-go
         readinessProbe:
           exec:
@@ -232,11 +235,9 @@ spec:
         app.kubernetes.io/version: go
     spec:
       containers:
-      - env:
-        - name: PROCS
-          value: "1"
-        - name: ADDRESS_SUFFIX
-          value: "default.svc.cluster.local"
+      - envFrom:
+        - configMapRef:
+            name: env-config
         image: davidbetz/recursivecall-go
         readinessProbe:
           exec:
@@ -287,11 +288,9 @@ spec:
         app.kubernetes.io/version: go
     spec:
       containers:
-      - env:
-        - name: PROCS
-          value: "1"
-        - name: ADDRESS_SUFFIX
-          value: "default.svc.cluster.local"
+      - envFrom:
+        - configMapRef:
+            name: env-config
         image: davidbetz/recursivecall-go
         readinessProbe:
           exec:
@@ -342,11 +341,9 @@ spec:
         app.kubernetes.io/version: go
     spec:
       containers:
-      - env:
-        - name: PROCS
-          value: "1"
-        - name: ADDRESS_SUFFIX
-          value: "default.svc.cluster.local"
+      - envFrom:
+        - configMapRef:
+            name: env-config
         image: davidbetz/recursivecall-go
         readinessProbe:
           exec:

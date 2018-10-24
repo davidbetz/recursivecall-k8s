@@ -1,0 +1,24 @@
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: caller
+  labels:
+    app.kubernetes.io/instance: caller
+    app.kubernetes.io/name: recursivecall
+spec:
+  schedule: "*/1 * * * *"
+  startingDeadlineSeconds: 600
+  successfulJobsHistoryLimit: 5
+  concurrencyPolicy: Forbid
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          restartPolicy: OnFailure
+          containers:
+          - name: caller
+            image: node:10
+            args:
+            - /bin/sh
+            - -c
+            - curl -s http://g.default.svc.cluster.local:3000
