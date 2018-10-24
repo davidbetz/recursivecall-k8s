@@ -18,8 +18,8 @@ This setup has a few components:
 
     kubectl apply -f services.yml
     kubectl apply -f deployments-go.yml
-    kubectl apply -f ingress-controller-go.yml
-    kubectl apply -f ingress-go.yml
+    kubectl apply -f ingress-controller.yml
+    kubectl apply -f ingress.yml
 
 After adding `recursivecall.example.org` to your name resolution (e.g. `/etc/hosts`):
 
