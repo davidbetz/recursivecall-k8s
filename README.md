@@ -10,6 +10,9 @@ This setup has a few components:
 * Deployments
 * NGINX Ingress Controller
 * Ingress
+* Network Policy
+* ConfigMap (for environment variables)
+* CronJob
 
 ## Usage
 
