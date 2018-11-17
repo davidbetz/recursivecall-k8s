@@ -16,10 +16,13 @@ This setup has a few components:
 
 ## Usage
 
-    kubectl apply -f services.yml
-    kubectl apply -f deployments-go.yml
-    kubectl apply -f ingress-controller.yml
-    kubectl apply -f ingress.yml
+    kubectl create ns rc
+    kubectl create ns rc-ingress
+    kubectl apply -f network-policy.yml -n rc
+    kubectl apply -f services.yml -n rc
+    kubectl apply -f deployments-go.yml -n rc
+    kubectl apply -f ingress.yml -n rc
+    kubectl apply -f ingress-controller.yml -n rc-ingress
 
 After adding `recursivecall.example.org` to your name resolution (e.g. `/etc/hosts`):
 

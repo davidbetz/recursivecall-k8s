@@ -2,7 +2,6 @@ apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
 metadata:
  name: network-policy-port-3000
- namespace: default
 spec:
   podSelector:
     matchLabels:

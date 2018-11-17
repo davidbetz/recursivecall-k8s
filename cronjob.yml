@@ -21,4 +21,4 @@ spec:
             args:
             - /bin/sh
             - -c
-            - curl -s http://g.default.svc.cluster.local:3000
+            - curl -s http://g.rc.svc.cluster.local:3000
