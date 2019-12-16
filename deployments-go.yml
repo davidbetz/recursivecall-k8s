@@ -2,6 +2,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: env-config
+  namespace: rc
 data:
   PROCS: "1"
   ADDRESS_SUFFIX: rc.svc.cluster.local
@@ -10,6 +11,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: a-go
+  namespace: rc
   labels:
     app.kubernetes.io/instance: a
     app.kubernetes.io/name: recursivecall
@@ -47,6 +49,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: b-go
+  namespace: rc
   labels:
     app.kubernetes.io/instance: b
     app.kubernetes.io/name: recursivecall
@@ -84,6 +87,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: c-go
+  namespace: rc
   labels:
     app.kubernetes.io/instance: c
     app.kubernetes.io/name: recursivecall
@@ -121,6 +125,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: d-go
+  namespace: rc
   labels:
     app.kubernetes.io/instance: d
     app.kubernetes.io/name: recursivecall
@@ -158,6 +163,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: e-go
+  namespace: rc
   labels:
     app.kubernetes.io/instance: e
     app.kubernetes.io/name: recursivecall
@@ -194,6 +200,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: f-go
+  namespace: rc
   labels:
     app.kubernetes.io/instance: f
     app.kubernetes.io/name: recursivecall
@@ -230,6 +237,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: g-go
+  namespace: rc
   labels:
     app.kubernetes.io/instance: g
     app.kubernetes.io/name: recursivecall

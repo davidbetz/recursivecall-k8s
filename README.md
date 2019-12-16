@@ -14,25 +14,20 @@ This setup has a few components:
 * ConfigMap (for environment variables)
 * CronJob
 
+Ingress controller service type is set to LoadBalancer for cloud. Change for non-cloud.
+
 ## Usage
 
-    kubectl create ns rc
-    kubectl create ns rc-ingress
-    kubectl apply -f network-policy.yml -n rc
-    kubectl apply -f services.yml -n rc
-    kubectl apply -f deployments-go.yml -n rc
-    kubectl apply -f ingress.yml -n rc
-    kubectl apply -f ingress-controller.yml -n rc-ingress
-
-After adding `recursivecall.example.org` to your name resolution (e.g. `/etc/hosts`):
-
-    curl recursivecall.example.org:30000
+    kubectl apply -f ingress-controller.yml
+    kubectl apply -f services.yml
+    kubectl apply -f .
 
 Also:
 
-    curl recursivecall.example.org:30000/g
-    curl recursivecall.example.org:30000/c
-    curl recursivecall.example.org:30000/a
+    curl ADDRESS
+    curl ADDRESS/g
+    curl ADDRESS/c
+    curl ADDRESS/a
 
 ## Probes
 

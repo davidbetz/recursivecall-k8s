@@ -2,11 +2,17 @@ apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
   name: app-ingress
+  namespace: rc
+  annotations:
+    kubernetes.io/ingress.class: traefik
 spec:
   rules:
-  - host: recursivecall.example.org
-    http:
+  - http:
       paths:
+      - path: /
+        backend:
+          serviceName: g
+          servicePort: 3000
       - path: /g
         backend:
           serviceName: g

@@ -1,6 +1,12 @@
 apiVersion: v1
+kind: Namespace
+metadata:
+  name: rc
+---
+apiVersion: v1
 kind: Service
 metadata:
+  namespace: rc
   labels:
     app.kubernetes.io/instance: a
     app.kubernetes.io/name: recursivecall
@@ -20,13 +26,18 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
+  namespace: rc
   labels:
     app.kubernetes.io/instance: b
     app.kubernetes.io/name: recursivecall
     app.kubernetes.io/version: go
   name: b
 spec:
-  clusterIP: None
+  ports:
+  - name: http
+    protocol: TCP
+    port: 3000
+    targetPort: 3000
   selector:
     app.kubernetes.io/instance: b
     app.kubernetes.io/name: recursivecall
@@ -35,6 +46,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
+  namespace: rc
   labels:
     app.kubernetes.io/instance: c
     app.kubernetes.io/name: recursivecall
@@ -54,13 +66,18 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
+  namespace: rc
   labels:
     app.kubernetes.io/instance: d
     app.kubernetes.io/name: recursivecall
     app.kubernetes.io/version: go
   name: d
 spec:
-  clusterIP: None
+  ports:
+  - name: http
+    protocol: TCP
+    port: 3000
+    targetPort: 3000
   selector:
     app.kubernetes.io/instance: d
     app.kubernetes.io/name: recursivecall
@@ -69,13 +86,18 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
+  namespace: rc
   labels:
     app.kubernetes.io/instance: e
     app.kubernetes.io/name: recursivecall
     app.kubernetes.io/version: go
   name: e
 spec:
-  clusterIP: None
+  ports:
+  - name: http
+    protocol: TCP
+    port: 3000
+    targetPort: 3000
   selector:
     app.kubernetes.io/instance: e
     app.kubernetes.io/name: recursivecall
@@ -84,13 +106,18 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
+  namespace: rc
   labels:
     app.kubernetes.io/instance: f
     app.kubernetes.io/name: recursivecall
     app.kubernetes.io/version: go
   name: f
 spec:
-  clusterIP: None
+  ports:
+  - name: http
+    protocol: TCP
+    port: 3000
+    targetPort: 3000
   selector:
     app.kubernetes.io/instance: f
     app.kubernetes.io/name: recursivecall
@@ -99,6 +126,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
+  namespace: rc
   labels:
     app.kubernetes.io/instance: g
     app.kubernetes.io/name: recursivecall

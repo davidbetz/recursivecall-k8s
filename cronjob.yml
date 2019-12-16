@@ -2,6 +2,7 @@ apiVersion: batch/v1beta1
 kind: CronJob
 metadata:
   name: caller
+  namespace: rc
   labels:
     app.kubernetes.io/instance: caller
     app.kubernetes.io/name: recursivecall
