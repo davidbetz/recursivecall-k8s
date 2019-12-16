@@ -79,6 +79,23 @@ spec:
         - configMapRef:
             name: env-config
         image: davidbetz/recursivecall-go:2018-10-13
+        readinessProbe:
+          exec:
+            command:
+            - ./recursivecall
+            - check
+            - a
+          initialDelaySeconds: 5
+          periodSeconds: 10
+        livenessProbe:
+          exec:
+            command:
+            - ./recursivecall
+            - check
+            - a
+          failureThreshold: 3
+          periodSeconds: 2
+          timeoutSeconds: 4
         name: b
       restartPolicy: Always
 
@@ -117,6 +134,23 @@ spec:
         - configMapRef:
             name: env-config
         image: davidbetz/recursivecall-go:2018-10-13
+        readinessProbe:
+          exec:
+            command:
+            - ./recursivecall
+            - check
+            - b
+          initialDelaySeconds: 5
+          periodSeconds: 10
+        livenessProbe:
+          exec:
+            command:
+            - ./recursivecall
+            - check
+            - b
+          failureThreshold: 3
+          periodSeconds: 2
+          timeoutSeconds: 4
         name: c
       restartPolicy: Always
 
@@ -155,6 +189,23 @@ spec:
         - configMapRef:
             name: env-config
         image: davidbetz/recursivecall-go:2018-10-13
+        readinessProbe:
+          exec:
+            command:
+            - ./recursivecall
+            - check
+            - c
+          initialDelaySeconds: 5
+          periodSeconds: 10
+        livenessProbe:
+          exec:
+            command:
+            - ./recursivecall
+            - check
+            - c
+          failureThreshold: 3
+          periodSeconds: 2
+          timeoutSeconds: 4
         name: d
       restartPolicy: Always
 
@@ -193,6 +244,23 @@ spec:
         - configMapRef:
             name: env-config
         image: davidbetz/recursivecall-go:2018-10-13
+        readinessProbe:
+          exec:
+            command:
+            - ./recursivecall
+            - check
+            - d
+          initialDelaySeconds: 5
+          periodSeconds: 10
+        livenessProbe:
+          exec:
+            command:
+            - ./recursivecall
+            - check
+            - d
+          failureThreshold: 3
+          periodSeconds: 2
+          timeoutSeconds: 4
         name: e
       restartPolicy: Always
 ---
@@ -230,6 +298,23 @@ spec:
         - configMapRef:
             name: env-config
         image: davidbetz/recursivecall-go:2018-10-13
+        readinessProbe:
+          exec:
+            command:
+            - ./recursivecall
+            - check
+            - e
+          initialDelaySeconds: 5
+          periodSeconds: 10
+        livenessProbe:
+          exec:
+            command:
+            - ./recursivecall
+            - check
+            - e
+          failureThreshold: 3
+          periodSeconds: 2
+          timeoutSeconds: 4
         name: f
       restartPolicy: Always
 ---
@@ -267,5 +352,22 @@ spec:
         - configMapRef:
             name: env-config
         image: davidbetz/recursivecall-go:2018-10-13
+        readinessProbe:
+          exec:
+            command:
+            - ./recursivecall
+            - check
+            - f
+          initialDelaySeconds: 5
+          periodSeconds: 10
+        livenessProbe:
+          exec:
+            command:
+            - ./recursivecall
+            - check
+            - f
+          failureThreshold: 3
+          periodSeconds: 2
+          timeoutSeconds: 4
         name: g
       restartPolicy: Always
