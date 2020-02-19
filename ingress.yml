@@ -1,27 +1,22 @@
-apiVersion: extensions/v1beta1
-kind: Ingress
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
 metadata:
-  name: app-ingress
+  name: myingressroute
   namespace: rc
-  annotations:
-    kubernetes.io/ingress.class: traefik
 spec:
-  rules:
-  - http:
-      paths:
-      - path: /
-        backend:
-          serviceName: g
-          servicePort: 3000
-      - path: /g
-        backend:
-          serviceName: g
-          servicePort: 3000
-      - path: /c
-        backend:
-          serviceName: c
-          servicePort: 3000
-      - path: /a
-        backend:
-          serviceName: a
-          servicePort: 3000
+  routes:
+  - match: PathPrefix(`/g`) || PathPrefix(`/`)
+    kind: Rule
+    services:
+    - name: g
+      port: 3000
+  - match: PathPrefix(`/c`)
+    kind: Rule
+    services:
+    - name: c
+      port: 3000
+  - match: PathPrefix(`/a`)
+    kind: Rule
+    services:
+    - name: a
+      port: 3000
